@@ -1,0 +1,106 @@
+/* Conecta Robles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 40px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: 1px;
+}
+
+form {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 450px;
+    border: 3px solid #2E7D32;
+}
+
+input {
+    width: 100%;
+    padding: 18px;
+    margin-bottom: 25px;
+    border: 3px solid #BDBDBD;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    background-color: #f8f8f8;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4CAF50;
+    box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+    background-color: white;
+}
+
+input::placeholder {
+    color: #757575;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #45a049, #1B5E20);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Mejoras de accesibilidad */
+input {
+    font-size: 18px !important;
+}
+
+form {
+    font-size: 18px;
+}
+
+h2 {
+    color: #FFFFFF;
+    background-color: rgba(46, 125, 50, 0.8);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
