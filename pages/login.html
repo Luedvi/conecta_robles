@@ -7,12 +7,13 @@
 </head>
 <body>
     <h2>Registro - Conecta Robles</h2>
-<form>
-    <input type="text" placeholder="Nombre completo" required>
-    <input type="email" placeholder="Correo electrónico" required>
-    <input type="password" placeholder="Contraseña" required>
-    <button><a href="chat.html">Registrarme</a></button>
+<form id="registrationForm" action="#">
+    <input type="text" id="fullName" placeholder="Nombre completo" required>
+    <input type="email" id="email" placeholder="Correo electrónico" required>
+    <input type="password" id="password" placeholder="Contraseña" required>
+    <p id="errorMsg" style="color: red;"></p>
+    <button type="submit">Registrarme</button>
 </form>
+<script src="../js/validation.js"></script>
 </body>
 </html>
-
