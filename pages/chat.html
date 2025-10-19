@@ -1,21 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<title>Chat Comunitario - Conecta Robles</title>
-<link rel="stylesheet" href="../css/styles_chat.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chat Comunitario - Conecta Robles</title>
+  <link rel="stylesheet" href="../css/styles_chat.css" />
 </head>
+<body class="bg">
+  <div class="wrap">
+    <header class="page-header">
+      <h1 class="title-badge">Chat Comunitario</h1>
+      <p class="subtitle">Conecta Robles - Comunidad de vecinos</p>
+    </header>
 
-<body>
-<h2>Chat Comunitario</h2>
-<div class="chat-box">
-    <div class="messages">
-    <div class="msg">👤 Vecino: Hola, ¿cuándo es la reunión?</div>
-    <div class="msg">👩‍💼 Administración: El sábado a las 6pm.</div>
-</div>
-    <input type="text" placeholder="Escribe tu mensaje...">
-    <button>Enviar</button>
-</div>
+    <main class="card">
+      <div class="card-head">
+        <h2 class="card-title">Conversación General</h2>
+      </div>
+
+      <section class="messages" aria-live="polite">
+        <article class="msg">
+          <p class="bubble">
+            Hola a todos, ¿alguien sabe cuándo es la próxima reunión de la comunidad?
+          </p>
+          <footer class="meta">
+            <span>👤 Diego Aburto</span><time>10:15 PM</time>
+          </footer>
+        </article>
+
+        <article class="msg">
+          <p class="bubble">
+            El sábado a las 6pm en la sala común. No faltes, hay puntos importantes a tratar.
+          </p>
+          <footer class="meta">
+            <span>👩‍💼 Liliet Velazquez</span><time>10:20 PM</time>
+          </footer>
+        </article>
+
+        <article class="msg">
+          <p class="bubble">
+            ¿Podríamos tratar el tema de las áreas verdes? Necesitan mantenimiento urgente.
+          </p>
+          <footer class="meta">
+            <span>👤 Luis Villegas</span><time>10:25 PM</time>
+          </footer>
+        </article>
+
+        <article class="msg me">
+          <p class="bubble">
+            Sí, estoy de acuerdo con Carlos. Las áreas verdes necesitan atención.
+          </p>
+          <footer class="meta">
+            <span>Tú</span><time>10:28 PM</time>
+          </footer>
+        </article>
+      </section>
+
+      <form class="composer" autocomplete="off">
+        <input class="input" type="text" placeholder="Escribe tu mensaje..." />
+        <button class="btn" type="button">Enviar</button>
+      </form>
+    </main>
+  </div>
 </body>
 </html>
-
