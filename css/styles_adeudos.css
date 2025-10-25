@@ -1,0 +1,126 @@
+:root {
+    --color-principal: #4CAF50;
+    --color-secundario: #2E7D32;
+    --color-fondo-claro: #f8f8f8;
+    --color-fondo-leve: #fff3e0;
+    --color-fondo-medio: #ffe0b2;
+    --color-fondo-grave: #ffccbc;
+    --color-texto-leve: #ef6c00;
+    --color-texto-grave: #d32f2f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, var(--color-principal) 0%, #45a049 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    letter-spacing: 1px;
+    background-color: rgba(46, 125, 50, 0.8);
+    padding: 15px 30px;
+    border-radius: 10px;
+}
+
+.contenedor-adeudos {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 900px;
+}
+
+.informacion-resumen {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-fondo-claro);
+    color: var(--color-secundario);
+    font-size: 1.1em;
+}
+
+#tablaDeudores {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+#tablaDeudores th, #tablaDeudores td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+#tablaDeudores th {
+    background-color: var(--color-secundario);
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.9em;
+}
+
+#tablaDeudores tr:nth-child(even) {
+    background-color: var(--color-fondo-claro);
+}
+
+#tablaDeudores tr:hover {
+    background-color: #E8F5E8;
+}
+
+/* Resaltar filas según la gravedad del adeudo */
+.adeudo-leve {
+    background-color: var(--color-fondo-leve);
+}
+.adeudo-medio {
+    background-color: var(--color-fondo-medio);
+}
+.adeudo-grave {
+    background-color: var(--color-fondo-grave);
+}
+
+.estatus {
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.85em;
+    display: inline-block;
+}
+
+.estatus.leve, .estatus.medio {
+    background-color: #fff3e0;
+    color: var(--color-texto-leve);
+}
+
+.estatus.grave {
+    background-color: #ffebee;
+    color: var(--color-texto-grave);
+}
+
+.nota {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #E8F5E8;
+    color: var(--color-secundario);
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.9em;
+}
