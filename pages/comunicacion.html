@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Los Robles · Buzón con Mesa Directiva</title>
+  <link rel="stylesheet" href="styles.css" />
+ 
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="badge-title">Sistema de Comunicación</div>
+  </header>
+
+  <main class="wrap">
+    <section class="card" aria-labelledby="titulo-form">
+      <div id="alert" class="alert" role="status" aria-live="polite" hidden>
+        ¡Mensaje enviado con éxito! Recibirás respuesta por correo.
+      </div>
+
+      <h1 id="titulo-form">Buzón con la Mesa Directiva</h1>
+      <p class="muted">Envía sugerencias, quejas o incidencias. Tu mensaje llegará al correo oficial de la Mesa Directiva.</p>
+
+      <div class="panel">
+        <div class="panel-title">Estado del canal</div>
+        <div class="panel-body">
+          <div><strong>Operativo</strong> — Tiempo de respuesta estimado: 24–72 h hábiles.</div>
+        </div>
+      </div>
+
+      <form id="contact-form" novalidate>
+        <div class="grid">
+          <div class="field">
+            <label for="nombre">Nombre completo</label>
+            <input id="nombre" name="nombre" autocomplete="name" required/>
+            <small class="error" data-for="nombre"></small>
+          </div>
+
+          <div class="field">
+            <label for="casa">Casa / Lote (opcional)</label>
+            <input id="casa" name="casa" placeholder="Ej. Mz 4, Casa 12"/>
+          </div>
+
+          <div class="field">
+            <label for="correo">Correo electrónico</label>
+            <input id="correo" name="correo" type="email" autocomplete="email" required/>
+            <small class="error" data-for="correo"></small>
+          </div>
+
+          <div class="field">
+            <label for="asunto">Asunto</label>
+            <input id="asunto" name="asunto" required/>
+            <small class="error" data-for="asunto"></small>
+          </div>
+        </div>
+
+        <fieldset class="choices" aria-label="Tipo de mensaje">
+          <legend>Tipo de mensaje</legend>
+          <label class="choice">
+            <input type="radio" name="tipo" value="Sugerencia" checked />
+            <span>Sugerencia</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="tipo" value="Incidencia" />
+            <span>Incidencia</span>
+          </label>
+          <label class="choice">
+            <input type="radio" name="tipo" value="Queja" />
+            <span>Queja</span>
+          </label>
+        </fieldset>
+
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="mensaje" rows="6" required placeholder="Describe con detalle…"></textarea>
+          <small class="error" data-for="mensaje"></small>
+        </div>
+
+        <div class="grid">
+          <div class="field">
+            <label for="evidencia">Enlace a evidencia (opcional)</label>
+            <input id="evidencia" name="evidencia" placeholder="URL de foto o documento" />
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono (opcional)</label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel" />
+          </div>
+        </div>
+
+        <label class="consent">
+          <input type="checkbox" id="consent" required />
+          <span>Acepto el aviso de privacidad y el uso de mis datos para dar seguimiento.</span>
+        </label>
+
+        <div class="actions">
+          <button type="submit" id="sendBtn" class="btn primary">Enviar mensaje</button>
+          <button type="reset" class="btn">Limpiar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">Los Robles · Comunidad</footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
