@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deudores - Conecta Robles</title>
+    <link rel="stylesheet" href="../css/styles_adeudos.css">
+</head>
+<body>
+    <h1>Lista de Adeudos de Mantenimiento</h1>
+    <div class="contenedor-adeudos">
+        <div class="informacion-resumen">
+            <p><strong>Corte:</strong> Septiembre, 2025</p>
+            <p><strong>Cuota Mensual:</strong> $200.00</p>
+        </div>
+
+        <table id="tablaDeudores">
+            <thead>
+                <tr>
+                    <th>Casa / Lote</th>
+                    <th>Nombre del Residente</th>
+                    <th>Meses Vencidos</th>
+                    <th>Monto Total Adeudado</th>
+                    <th>Estatus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="adeudo-grave">
+                    <td>A-03</td>
+                    <td>Fernanda Ruiz</td>
+                    <td>4</td>
+                    <td>$800.00</td>
+                    <td><span class="estatus grave">Moroso (4 meses)</span></td>
+                </tr>
+                <tr class="adeudo-leve">
+                    <td>B-12</td>
+                    <td>Luis Villegas</td>
+                    <td>1</td>
+                    <td>$200.00</td>
+                    <td><span class="estatus leve">Vencido (1 mes)</span></td>
+                </tr>
+                <tr>
+                    <td>C-05</td>
+                    <td>Liliet Velazquez</td>
+                    <td>2</td>
+                    <td>$400.00</td>
+                    <td><span class="estatus medio">Vencido (2 meses)</span></td>
+                </tr>
+                <tr>
+                    <td>D-09</td>
+                    <td>Roberto García</td>
+                    <td>3</td>
+                    <td>$600.00</td>
+                    <td><span class="estatus medio">Vencido (3 meses)</span></td>
+                </tr>
+                </tbody>
+        </table>
+
+        <p class="nota">Esta información es solo para uso interno de la administración.</p>
+    </div>
+</body>
+</html>
