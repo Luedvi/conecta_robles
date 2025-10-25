@@ -1,0 +1,197 @@
+            * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        h1 {
+            color: white;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+            background-color: rgba(46, 125, 50, 0.8);
+            padding: 15px 30px;
+            border-radius: 10px;
+        }
+
+        .contenedor-pagos {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            width: 100%;
+            max-width: 500px;
+            border: 3px solid #2E7D32;
+        }
+
+        .informacion-pago {
+            margin-bottom: 25px;
+            padding: 15px;
+            background-color: #E8F5E8;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .informacion-pago h2 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .detalles-pago {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .detalles-pago span {
+            font-weight: bold;
+        }
+
+        .monto {
+            font-size: 24px;
+            color: #2E7D32;
+            text-align: center;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .metodo-pago {
+            margin-bottom: 25px;
+        }
+
+        .metodo-pago h3 {
+            margin-bottom: 15px;
+            color: #2E7D32;
+        }
+
+        .metodo {
+            display: flex;
+            align-items: center;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 2px solid #E0E0E0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .metodo:hover {
+            border-color: #4CAF50;
+            background-color: #F1F8E9;
+        }
+
+        .metodo.seleccionado {
+            border-color: #4CAF50;
+            background-color: #E8F5E8;
+        }
+
+        .metodo input {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .form-pago {
+            margin-top: 20px;
+        }
+
+        .form-grupo {
+            margin-bottom: 20px;
+        }
+
+        .form-grupo label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2E7D32;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 16px;
+            border: 3px solid #BDBDBD;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background-color: #f8f8f8;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #4CAF50;
+            box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.2);
+            background-color: white;
+        }
+
+        .detalles-carta {
+            display: flex;
+            gap: 15px;
+        }
+
+        .detalles-carta .form-grupo {
+            flex: 1;
+        }
+
+        button {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #45a049, #1B5E20);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4);
+        }
+
+        .historial-pago {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #E0E0E0;
+        }
+
+        .historial-pago h3 {
+            margin-bottom: 15px;
+            color: #2E7D32;
+        }
+
+        .historial-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #f8f8f8;
+            border-radius: 8px;
+            border-left: 4px solid #2196F3;
+        }
+
+        .historial-fecha {
+            color: #757575;
+            font-size: 14px;
+        }
+
+        .historial-monto {
+            font-weight: bold;
+            color: #2E7D32;
+        }
