@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Encuestas - Conecta Robles</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    :root {
+      --green-bg: #4aa34f;   /* fondo grande */
+      --green-dark: #357c39; /* header tarjeta */
+      --green-soft: #e8f5e9; /* fondos claritos */
+      --card-radius: 14px;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #e3e3e3;
+    }
+
+    /* Barra superior parecida a la de notificaciones */
+    .top-bar {
+      background: var(--green-bg);
+      padding: 25px 0 45px;
+      text-align: center;
+      color: white;
+    }
+    .top-bar h1 {
+      margin: 0;
+      font-size: 1.8rem;
+    }
+    .top-bar p {
+      margin: 6px 0 0;
+      opacity: 0.9;
+    }
+
+    /* Contenedor principal */
+    .survey-wrapper {
+      max-width: 800px;
+      margin: -35px auto 40px;
+      background: #fff;
+      border-radius: var(--card-radius);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      overflow: hidden;
+      border: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .survey-header {
+      background: var(--green-dark);
+      color: #fff;
+      padding: 14px 18px;
+      font-weight: bold;
+      font-size: 1.05rem;
+    }
+
+    .survey-list {
+      padding: 16px 18px 22px;
+      background: #fff;
+    }
+
+    .survey-item {
+      background: #fff;
+      border: 1px solid #d8d8d8;
+      border-left: 6px solid var(--green-bg);
+      border-radius: 10px;
+      padding: 14px 14px 10px;
+      margin-bottom: 14px;
+      transition: box-shadow .2s ease;
+    }
+
+    .survey-item:hover {
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+
+    .survey-question {
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #2f2f2f;
+    }
+
+    .survey-meta {
+      font-size: .75rem;
+      color: #6f6f6f;
+      margin-bottom: 10px;
+    }
+
+    .survey-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .survey-button {
+      background: #f5f5f5;
+      border: 1px solid #cfcfcf;
+      border-radius: 20px;
+      padding: 5px 13px;
+      font-size: .83rem;
+      cursor: pointer;
+      transition: background .2s;
+    }
+    .survey-button:hover {
+      background: #e8f5e9;
+      border-color: #b0d1b2;
+    }
+    .survey-button.is-selected {
+      background: var(--green-bg);
+      border-color: var(--green-bg);
+      color: white;
+      font-weight: 600;
+    }
+
+    /* Resultados */
+    .results {
+      margin-top: 8px;
+    }
+    .result-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 4px;
+      font-size: .8rem;
+    }
+    .result-label {
+      width: 68px;
+    }
+    .result-bar {
+      flex: 1;
+      background: #f1f1f1;
+      border-radius: 40px;
+      height: 12px;
+      overflow: hidden;
+    }
+    .result-fill {
+      height: 12px;
+      background: var(--green-bg);
+      width: 0%;
+      transition: width .3s ease;
+    }
+    .result-value {
+      width: 46px;
+      text-align: right;
+    }
+
+    .empty-msg {
+      text-align: center;
+      color: #808080;
+      font-size: .85rem;
+      padding: 18px 10px;
+    }
+
+    @media (max-width: 600px) {
+      .survey-wrapper {
+        margin: -25px 12px 30px;
+      }
+      .survey-options {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .result-label {
+        width: 58px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER estilo notificaciones -->
+  <header class="top-bar">
+    <h1>Encuestas</h1>
+    <p>Conecta Robles – Comunidad de vecinos</p>
+  </header>
+
+  <!-- TARJETA -->
+  <main class="survey-wrapper">
+    <div class="survey-header">
+      Encuestas de la comunidad
+    </div>
+    <div class="survey-list" id="surveyList">
+      <!-- Se llenará con JS -->
+    </div>
+  </main>
+
+  <script>
+    // "Base de datos" en memoria
+    const surveys = [
+      {
+        id: 1,
+        question: "¿Crees que deberíamos remodelar la banqueta principal?",
+        author: "Administración",
+        date: "29/10/2025",
+        options: ["Sí", "No", "Tal vez"],
+        votes: [0, 0, 0]
+      },
+      {
+        id: 2,
+        question: "¿Te gustaría recibir notificaciones por WhatsApp además de la app?",
+        author: "Comité de Comunicación",
+        date: "28/10/2025",
+        options: ["Sí", "No"],
+        votes: [0, 0]
+      },
+      {
+        id: 3,
+        question: "¿Qué prioridad le darías al mantenimiento de áreas verdes?",
+        author: "Mantenimiento",
+        date: "27/10/2025",
+        options: ["Alta", "Media", "Baja"],
+        votes: [0, 0, 0]
+      }
+    ];
+
+    const surveyList = document.getElementById("surveyList");
+
+    // Render inicial
+    function renderSurveys() {
+      if (!surveys.length) {
+        surveyList.innerHTML = '<p class="empty-msg">No hay encuestas por el momento.</p>';
+        return;
+      }
+
+      surveyList.innerHTML = "";
+
+      surveys.forEach(survey => {
+        const div = document.createElement("div");
+        div.className = "survey-item";
+        div.dataset.id = survey.id;
+
+        // construir botones
+        const buttonsHTML = survey.options.map((opt, index) => {
+          return `<button class="survey-button" data-index="${index}">${opt}</button>`;
+        }).join("");
+
+        div.innerHTML = `
+          <p class="survey-question">${survey.question}</p>
+          <p class="survey-meta">${survey.author} · ${survey.date}</p>
+          <div class="survey-options">
+            ${buttonsHTML}
+          </div>
+          <div class="results">
+            ${renderResultsHTML(survey)}
+          </div>
+        `;
+
+        surveyList.appendChild(div);
+      });
+    }
+
+    // Calcula y dibuja resultados
+    function renderResultsHTML(survey) {
+      const total = survey.votes.reduce((acc, v) => acc + v, 0);
+      return survey.options.map((opt, index) => {
+        const votes = survey.votes[index];
+        const percent = total === 0 ? 0 : Math.round((votes / total) * 100);
+        return `
+          <div class="result-row">
+            <span class="result-label">${opt}</span>
+            <div class="result-bar">
+              <div class="result-fill" style="width:${percent}%;"></div>
+            </div>
+            <span class="result-value">${percent}%</span>
+          </div>
+        `;
+      }).join("");
+    }
+
+    // Manejo de voto
+    surveyList.addEventListener("click", (e) => {
+      if (!e.target.classList.contains("survey-button")) return;
+
+      const btn = e.target;
+      const surveyDiv = btn.closest(".survey-item");
+      const surveyId = Number(surveyDiv.dataset.id);
+      const optionIndex = Number(btn.dataset.index);
+
+      const survey = surveys.find(s => s.id === surveyId);
+      if (!survey) return;
+
+      // sumamos voto
+      survey.votes[optionIndex] += 1;
+
+      // marcar botón seleccionado (opcional: solo visual, no evita revotar)
+      const buttons = surveyDiv.querySelectorAll(".survey-button");
+      buttons.forEach(b => b.classList.remove("is-selected"));
+      btn.classList.add("is-selected");
+
+      // re-render de resultados solo en este survey
+      const resultsDiv = surveyDiv.querySelector(".results");
+      resultsDiv.innerHTML = renderResultsHTML(survey);
+    });
+
+    renderSurveys();
+  </script>
+</body>
+</html>
