@@ -5,8 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notificaciones - Conecta Robles</title>
     <link rel="stylesheet" href="../css/styles_notificaciones.css">
+    <style>
+        /* Estilos generales para el menú de navegación */
+        .main-nav {
+            background-color: #2E7D32;
+            padding: 0;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .nav-list a:hover {
+            background-color: #4CAF50;
+        }
+
+        .nav-list .active a {
+            background-color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Responsive para dispositivos móviles */
+        @media (max-width: 768px) {
+            .nav-list {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-list a {
+                padding: 12px 15px;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .nav-list li:last-child a {
+                border-bottom: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li class="active"><a href="notificaciones.html">Notificaciones</a></li>
+            <li><a href="comunicacion.html">Buzón Directiva</a></li>
+            <li><a href="chat.html">Chat Comunitario</a></li>
+            <li><a href="pagos.html">Pagos</a></li>
+            <li><a href="encuesta.html">Encuestas</a></li>
+            <li><a href="adeudos.html">Adeudos</a></li>
+        </ul>
+    </nav>
+
     <div>
         <header>
             <h1>Notificaciones</h1>
@@ -69,4 +132,3 @@
     </div>
 </body>
 </html>
-
