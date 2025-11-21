@@ -7,8 +7,71 @@
   <link rel="stylesheet" href="../css/comunicacion.css" />
  
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js" defer></script>
+  <style>
+    /* Estilos generales para el menú de navegación */
+    .main-nav {
+        background-color: #2E7D32;
+        padding: 0;
+        width: 100%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        margin-bottom: 30px;
+    }
+
+    .nav-list {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 15px 20px;
+        text-decoration: none;
+        color: white;
+        font-weight: 600;
+        transition: background-color 0.3s;
+    }
+
+    .nav-list a:hover {
+        background-color: #4CAF50;
+    }
+
+    .nav-list .active a {
+        background-color: #4CAF50;
+        font-weight: bold;
+    }
+
+    /* Responsive para dispositivos móviles */
+    @media (max-width: 768px) {
+        .nav-list {
+            flex-direction: column;
+            align-items: stretch;
+        }
+        .nav-list a {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .nav-list li:last-child a {
+            border-bottom: none;
+        }
+    }
+  </style>
 </head>
 <body>
+  <nav class="main-nav">
+    <ul class="nav-list">
+        <li><a href="notificaciones.html">Notificaciones</a></li>
+        <li class="active"><a href="comunicacion.html">Buzón Directiva</a></li>
+        <li><a href="chat.html">Chat Comunitario</a></li>
+        <li><a href="pagos.html">Pagos</a></li>
+        <li><a href="encuesta.html">Encuestas</a></li>
+        <li><a href="adeudos.html">Adeudos</a></li>
+    </ul>
+  </nav>
+
   <header class="site-header">
     <div class="badge-title">Sistema de Comunicación</div>
   </header>
@@ -33,29 +96,17 @@
         <div class="grid">
           <div class="field">
             <label for="nombre">Nombre completo</label>
-            <input id="nombre" name="nombre" autocomplete="name" required/>
+            <input id="nombre" name="nombre" required autocomplete="name" placeholder="Tu nombre" />
             <small class="error" data-for="nombre"></small>
           </div>
-
-          <div class="field">
-            <label for="casa">Casa / Lote (opcional)</label>
-            <input id="casa" name="casa" placeholder="Ej. Mz 4, Casa 12"/>
-          </div>
-
           <div class="field">
             <label for="correo">Correo electrónico</label>
-            <input id="correo" name="correo" type="email" autocomplete="email" required/>
+            <input id="correo" name="correo" type="email" required autocomplete="email" placeholder="tucorreo@ejemplo.com" />
             <small class="error" data-for="correo"></small>
           </div>
-
-          <div class="field">
-            <label for="asunto">Asunto</label>
-            <input id="asunto" name="asunto" required/>
-            <small class="error" data-for="asunto"></small>
-          </div>
         </div>
-
-        <fieldset class="choices" aria-label="Tipo de mensaje">
+        
+        <fieldset class="choices">
           <legend>Tipo de mensaje</legend>
           <label class="choice">
             <input type="radio" name="tipo" value="Sugerencia" checked />
