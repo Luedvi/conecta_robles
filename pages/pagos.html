@@ -5,8 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pagos - Conecta Robles</title>
     <link rel="stylesheet" href="../css/styles_pagos.css">
+    <style>
+        /* Estilos generales para el menú de navegación */
+        .main-nav {
+            background-color: #2E7D32;
+            padding: 0;
+            width: 100%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .nav-list {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 15px 20px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .nav-list a:hover {
+            background-color: #4CAF50;
+        }
+
+        .nav-list .active a {
+            background-color: #4CAF50;
+            font-weight: bold;
+        }
+
+        /* Responsive para dispositivos móviles */
+        @media (max-width: 768px) {
+            .nav-list {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .nav-list a {
+                padding: 12px 15px;
+                text-align: center;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+            .nav-list li:last-child a {
+                border-bottom: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <nav class="main-nav">
+        <ul class="nav-list">
+            <li><a href="notificaciones.html">Notificaciones</a></li>
+            <li><a href="comunicacion.html">Buzón Directiva</a></li>
+            <li><a href="chat.html">Chat Comunitario</a></li>
+            <li class="active"><a href="pagos.html">Pagos</a></li>
+            <li><a href="encuesta.html">Encuestas</a></li>
+            <li><a href="adeudos.html">Adeudos</a></li>
+        </ul>
+    </nav>
     <h1>Sistema de Pagos</h1>
     <div class="contenedor-pagos">
         <div class="success-message" id="successMessage">
@@ -32,49 +94,29 @@
                 <input type="radio" id="credit-card" name="payment-metodo" checked>
                 <label for="credit-card">Tarjeta de Crédito/Débito</label>
             </div>
-            <div class="metodo" id="bankTransferMethod">
-                <input type="radio" id="bank-transfer" name="payment-metodo">
-                <label for="bank-transfer">Transferencia Bancaria</label>
+            <div class="metodo" id="transferMethod">
+                <input type="radio" id="transferencia" name="payment-metodo">
+                <label for="transferencia">Transferencia Bancaria</label>
             </div>
         </div>
-
-        <div class="bank-transfer-info" id="bankTransferInfo">
-            <h4>Información para Transferencia Bancaria</h4>
-            <div class="bank-details">
-                <strong>Banco:</strong> Banco Comunitario
-            </div>
-            <div class="bank-details">
-                <strong>Cuenta:</strong> 1234-5678-9012-3456
-            </div>
-            <div class="bank-details">
-                <strong>Beneficiario:</strong> Conecta Robles Comunidad
-            </div>
-            <div class="bank-details">
-                <strong>Concepto:</strong> Cuota Mantenimiento [Tu Número de Vivienda]
-            </div>
-            <p>Una vez realizada la transferencia, por favor envíe el comprobante al correo: pagos@conectarobles.com</p>
-        </div>
-
-        <div class="form-pago" id="paymentForm">
+        
+        <div class="form-pago" id="cardForm">
+            <h3>Datos de la Tarjeta</h3>
             <div class="form-grupo">
-                <label for="card-number">Número de Tarjeta</label>
-                <input type="text" id="card-number" placeholder="1234 5678 9012 3456" maxlength="19">
+                <label for="nombre-tarjeta">Nombre en la Tarjeta</label>
+                <input type="text" id="nombre-tarjeta" placeholder="Como aparece en la tarjeta">
+            </div>
+            <div class="form-grupo">
+                <label for="numero-tarjeta">Número de Tarjeta</label>
+                <input type="text" id="numero-tarjeta" placeholder="xxxx xxxx xxxx xxxx" maxlength="19">
                 <div class="error-message" id="cardNumberError">Número de tarjeta inválido</div>
             </div>
-            
-            <div class="form-grupo">
-                <label for="card-holder">Nombre del Titular</label>
-                <input type="text" id="card-holder" placeholder="Como aparece en la tarjeta">
-                <div class="error-message" id="cardHolderError">Ingrese el nombre del titular</div>
-            </div>
-            
             <div class="detalles-carta">
                 <div class="form-grupo">
-                    <label for="fecha-expiracion">Fecha de Vencimiento</label>
-                    <input type="text" id="fecha-expiracion" placeholder="MM/AA" maxlength="5">
-                    <div class="error-message" id="expiryDateError">Fecha inválida</div>
+                    <label for="expiracion">Fecha de Expiración (MM/AA)</label>
+                    <input type="text" id="expiracion" placeholder="MM/AA" maxlength="5">
+                    <div class="error-message" id="expiryError">Fecha inválida</div>
                 </div>
-                
                 <div class="form-grupo">
                     <label for="cvv">CVV</label>
                     <input type="text" id="cvv" placeholder="123" maxlength="4">
@@ -88,6 +130,16 @@
             </div>
             
             <button id="payButton">Realizar Pago</button>
+        </div>
+
+        <div class="info-transferencia" id="transferInfo" style="display: none;">
+            <h3>Detalles de Transferencia Bancaria</h3>
+            <p><strong>Banco:</strong> BanComunidad S.A.</p>
+            <p><strong>CLABE Interbancaria:</strong> 012180000000000001</p>
+            <p><strong>Beneficiario:</strong> Condominio Los Robles A.C.</p>
+            <p><strong>Monto a pagar:</strong> $200.00</p>
+            <p class="nota">Por favor, envía el comprobante de pago al correo de la Tesorería para su aplicación.</p>
+            <button onclick="document.getElementById('successMessage').style.display='block';">Notificar Transferencia Realizada</button>
         </div>
 
         <div class="historial-pago">
@@ -115,8 +167,40 @@
             </div>
         </div>
     </div>
-    <script src="../js/Pagos.js"></script>
+    
+    <!-- Script básico para cambiar entre formularios de pago (simulado) -->
+    <script>
+        const cardMethod = document.getElementById('creditCardMethod');
+        const transferMethod = document.getElementById('transferMethod');
+        const cardForm = document.getElementById('cardForm');
+        const transferInfo = document.getElementById('transferInfo');
+
+        cardMethod.addEventListener('click', () => {
+            cardMethod.classList.add('seleccionado');
+            transferMethod.classList.remove('seleccionado');
+            cardForm.style.display = 'block';
+            transferInfo.style.display = 'none';
+        });
+
+        transferMethod.addEventListener('click', () => {
+            transferMethod.classList.add('seleccionado');
+            cardMethod.classList.remove('seleccionado');
+            cardForm.style.display = 'none';
+            transferInfo.style.display = 'block';
+        });
+
+        // Simulación de validación y pago (para el botón Realizar Pago)
+        document.getElementById('payButton').addEventListener('click', function() {
+            const loading = document.getElementById('loadingIndicator');
+            loading.style.display = 'flex';
+            
+            // Simular un tiempo de procesamiento
+            setTimeout(() => {
+                loading.style.display = 'none';
+                document.getElementById('successMessage').style.display = 'block';
+            }, 2000); 
+        });
+
+    </script>
 </body>
-
 </html>
-
