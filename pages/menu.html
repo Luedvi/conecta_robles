@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Proyecto 2 - Producto integrador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;}
+        
+        .navbar {
+            background-color: #62a0ea; 
+            padding: 0 20px;
+            height: 60px;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;}
+
+        .menu-title {
+            font-size: 1.5em;
+            color: white;}
+
+        .menu-toggle {
+            text-decoration: none;
+            font-size: 2em;
+            color: white;}
+        
+        .menu-toggle::before {content: "\2261";}
+
+        .nav-links {
+            margin: 0;
+            padding: 0;
+            display: none; 
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%; 
+            background-color: #62a0ea;}
+
+        .nav-links li {text-align: center;}
+
+        .nav-links a {
+            color: white;
+            padding: 10px 20px; 
+            display: inline-block; 
+            text-decoration: none;}
+
+        .nav-links a:hover {text-decoration: underline; }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: white;}
+
+        .nav-links.active {display: block;}
+
+        @media screen and (min-width: 768px) {
+            .menu-toggle {display: none;}
+            
+            .nav-links {
+                display: flex;
+                position: static; 
+                width: auto;}
+            
+            .nav-links li {display: flex;}
+
+            .nav-links a {
+                padding: 0 10px; 
+                margin-left: 10px;}
+
+            .nav-links a:hover {text-decoration: underline;}}
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="menu-title">Menú</div>
+        <a href="#" class="menu-toggle" aria-label="Abrir menú"></a>
+        <ul class="nav-links">
+            <li><a href="#">Actividades realizadas en el curso</a></li>
+            <li><a href="#">Sistema implementado</a></li>
+            <li><a href="#">Código fuente</a></li>
+            <li><a href="#">Reporte de las modificaciones realizadas</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            menuToggle.addEventListener('click', function (e) {
+                e.preventDefault(); 
+                navLinks.classList.toggle('active');});});
+    </script>
+</body>
+</html>
