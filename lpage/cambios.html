@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte de Progreso de Sprint - Conecta Robles</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                    
+                        'primary-dark': '#5D5C61',
+                        'primary-accent': '#9092B0',
+                        'bg-light-soft': '#F8F8F8',
+                        'text-dark': '#2F3A4B',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F8F8;
+            color: #2F3A4B;
+        }
+        
+        .icon {
+            width: 20px;
+            height: 20px;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+
+   
+    <header class="bg-primary-dark shadow-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <h1 class="text-4xl font-extrabold text-white">
+                Reporte de Sprint
+            </h1>
+            <p class="text-primary-accent text-lg mt-1 font-light">
+                Conecta Robles - Prototipo de Interfaz de Usuario (Fase I)
+            </p>
+        </div>
+    </header>
+
+    
+    <main class="max-w-4xl mx-auto p-4 sm:p-6 lg:p-8">
+        
+        <div class="bg-white p-6 sm:p-10 rounded-2xl shadow-xl border-t-8 border-primary-accent/80 mt-8">
+            
+            
+            <div class="mb-8 p-4 bg-bg-light-soft rounded-lg border border-gray-200">
+                <p class="text-sm text-text-dark font-medium mb-1">
+                    **Fecha de Emisión:** 30 de Noviembre de 2025
+                </p>
+                <p class="text-sm text-text-dark font-medium mb-1">
+                    **Elaborado por:** Equipo de Desarrollo Front-end
+                </p>
+                <p class="text-sm text-text-dark font-medium">
+                    **Estado:** <span class="text-green-600 font-bold">Avances validados e integrados en el repositorio principal.</span>
+                </p>
+            </div>
+
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-text-dark mb-4 border-b pb-2 border-primary-accent/50">
+                    1. Planificación y Alcance (Backlog Review)
+                </h2>
+                <p class="text-gray-700 mb-4">
+                    El enfoque principal de este periodo fue consolidar la definición de las siguientes etapas de desarrollo a nivel de *backend* y asegurar la calidad del diseño final del *front-end* desarrollado.
+                </p>
+
+                <h3 class="text-xl font-semibold text-text-dark mb-3">1.1. Actualización de Historias de Usuario</h3>
+                <ul class="list-none space-y-2 pl-0">
+                    <li class="flex items-start">
+                        <span class="text-primary-accent mr-3 font-extrabold">•</span>
+                        <p class="text-gray-600">
+                            **Revisión de Backlog:** Se llevó a cabo una revisión exhaustiva del backlog del proyecto.
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-accent mr-3 font-extrabold">•</span>
+                        <p class="text-gray-600">
+                            **Historias Actualizadas:** Se actualizaron y detallaron las historias de usuario para los módulos clave: **Registro, Base de Datos (DB), Chat Comunitario, Sistema de Pagos y Notificaciones**, preparando la documentación para la fase de integración con el *backend*.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+            
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-text-dark mb-4 border-b pb-2 border-primary-accent/50">
+                    2. Implementación Técnica y UX/UI
+                </h2>
+                <p class="text-gray-700 mb-4">
+                    Se realizaron modificaciones significativas en la interfaz de usuario para mejorar la navegabilidad y la experiencia visual.
+                </p>
+                
+                <h3 class="text-xl font-semibold text-text-dark mb-3">2.1. Navegación y Flujo de Usuario</h3>
+                <ul class="list-none space-y-2 pl-0">
+                    <li class="flex items-start">
+                        <span class="text-primary-accent mr-3 font-extrabold">•</span>
+                        <p class="text-gray-600">
+                            **Menú de Navegación:** Se implementó el menú de navegación entre pestañas en la interfaz principal de todos los módulos. Este cambio garantiza un acceso rápido y consistente a cada funcionalidad.
+                        </p>
+                    </li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-text-dark mb-3 mt-4">2.2. Diseño y Estética (UX/UI)</h3>
+                <ul class="list-none space-y-2 pl-0">
+                    <li class="flex items-start">
+                        <span class="text-primary-accent mr-3 font-extrabold">•</span>
+                        <p class="text-gray-600">
+                            **Elementos Gráficos:** Se añadieron imágenes, iconos y elementos gráficos a las vistas principales. Este esfuerzo se realizó con el objetivo de evitar la homogeneidad visual y optimizar la experiencia de usuario (UX).
+                        </p>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-primary-accent mr-3 font-extrabold">•</span>
+                        <p class="text-gray-600">
+                            **Revisión Fina de Diseño:** Se completó una revisión detallada del diseño de la interfaz, asegurando la consistencia en el uso de la tipografía (tipo de letra y tamaños), espaciados, la paleta de colores suave implementada recientemente y la correcta integración de la nueva iconografía y elementos visuales.
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+        
+            <section class="mb-8">
+                <h2 class="text-2xl font-bold text-text-dark mb-4 border-b pb-2 border-primary-accent/50">
+                    3. Control de Calidad y Verificación
+                </h2>
+                
+                <h3 class="text-xl font-semibold text-text-dark mb-3">3.1. Integración en el Repositorio</h3>
+                <ul class="list-none space-y-2 pl-0">
+                    <li class="flex items-start">
+                        <span class="text-primary-accent mr-3 font-extrabold">•</span>
+                        <p class="text-gray-600">
+                            **Verificación en GitHub:** Se verificó la última versión del proyecto en el repositorio principal (GitHub), confirmando que todos los módulos prototipo están correctamente integrados y funcionando conjuntamente con el nuevo sistema de navegación.
+                        </p>
+                    </li>
+                </ul>
+
+                <h3 class="text-xl font-semibold text-text-dark mb-3 mt-4">3.2. Módulos Integrados y Verificados</h3>
+                <div class="grid grid-cols-2 gap-4 text-center mt-4">
+                    <span class="p-3 bg-primary-accent/10 text-text-dark font-medium rounded-lg shadow-sm">Chat Comunitario</span>
+                    <span class="p-3 bg-primary-accent/10 text-text-dark font-medium rounded-lg shadow-sm">Sistema de Pagos</span>
+                    <span class="p-3 bg-primary-accent/10 text-text-dark font-medium rounded-lg shadow-sm">Lista de Adeudos</span>
+                    <span class="p-3 bg-primary-accent/10 text-text-dark font-medium rounded-lg shadow-sm">Módulo de Notificaciones</span>
+                    <span class="col-span-2 p-3 bg-primary-dark/10 text-text-dark font-medium rounded-lg shadow-sm">Nuevo Menú de Navegación (Transversal)</span>
+                </div>
+            </section>
+            
+            
+            <section>
+                <h2 class="text-2xl font-bold text-text-dark mb-4 border-b pb-2 border-primary-accent/50">
+                    4. Conclusiones y Próximos Pasos
+                </h2>
+                <p class="text-lg font-medium text-text-dark mb-4 border-l-4 border-primary-accent pl-4 py-2 bg-bg-light-soft rounded-r-lg">
+                    La fase de prototipado y maquetación de la interfaz está completamente finalizada y verificada.
+                </p>
+                <p class="text-gray-700">
+                    Los próximos esfuerzos se centrarán por completo en el desarrollo de la arquitectura de *backend* y la integración de las llamadas a la base de datos para dotar de funcionalidad real a los módulos existentes.
+                </p>
+            </section>
+
+        </div>
+    </main>
+
+   
+    <footer class="bg-primary-dark mt-12 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-primary-accent text-sm">
+            <p>Reporte de Progreso | Conecta Robles &copy; 2025</p>
+        </div>
+    </footer>
+
+</body>
+</html>
